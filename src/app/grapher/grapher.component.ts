@@ -13,9 +13,10 @@ export class GrapherComponent implements OnInit {
 
   }
   
-  clickSetAmt: number; 
+  clickSetAmt = 0.0; 
   deducted: number; 
   amtSpent = 0; 
+  amtLeft: number; 
   message = ''; 
   message2 = ''; 
   buttonStatus = false; 
@@ -27,7 +28,8 @@ export class GrapherComponent implements OnInit {
       this.message = 'you did not type in a number!'; 
     } else {
       this.message = ''; 
-      this.clickSetAmt = startAmt;   
+      this.clickSetAmt = startAmt; 
+      this.amtLeft = parseFloat(startAmt);   
       this.buttonStatus = true;     
     }
   }
@@ -41,6 +43,7 @@ export class GrapherComponent implements OnInit {
       this.deducted = dedAmt; 
       
       this.amtSpent = this.amtSpent + parseInt(dedAmt);  
+      this.amtLeft = this.amtLeft - parseInt(dedAmt); 
     }
   }
 }

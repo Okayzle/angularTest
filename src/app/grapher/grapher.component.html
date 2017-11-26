@@ -18,6 +18,7 @@
   <p></p>
   
   <p>{{clickSetAmt}} {{message}}</p>
-  <p>{{deducted}} {{message2}}</p>
+  <p [hidden]="spentStatus">You spent: {{deducted}} {{message2}}</p>
   <p [hidden]="spentStatus">Total Spent: {{amtSpent}}</p>
+  <p [hidden]="spentStatus">Total Left: {{amtLeft}}</p>
 </form>
