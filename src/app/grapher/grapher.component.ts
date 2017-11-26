@@ -7,17 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrapherComponent implements OnInit {
   constructor() { 
-
   }
 
   ngOnInit() {
 
   }
   
-  clickSetAmt; 
-  deducted; 
+  clickSetAmt: number; 
+  deducted: number; 
+  amtSpent = 0; 
   message = ''; 
   message2 = ''; 
+  buttonStatus = false; 
+  spentStatus = true; 
 
   setClick(startAmt){
     if(isNaN(startAmt)){
@@ -25,7 +27,8 @@ export class GrapherComponent implements OnInit {
       this.message = 'you did not type in a number!'; 
     } else {
       this.message = ''; 
-      this.clickSetAmt = startAmt;       
+      this.clickSetAmt = startAmt;   
+      this.buttonStatus = true;     
     }
   }
 
@@ -33,8 +36,11 @@ export class GrapherComponent implements OnInit {
     if(isNaN(dedAmt)){
       this.message2 = 'you did not type in a number!'; 
     } else {
-      this.message2; 
+      this.spentStatus = false; 
+      this.message2 = ""; 
       this.deducted = dedAmt; 
+      
+      this.amtSpent = this.amtSpent + parseInt(dedAmt);  
     }
   }
 }

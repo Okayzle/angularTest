@@ -6,17 +6,18 @@
   <input #newInput 
     (keyup.enter)="setClick(newInput.value)"
     (blur)="setClick(newInput.value); newInput.value='' ">
-  <button type='button' (ng-click)="setClick(newInput.value)">Set</button>
+  <button type='button' (ng-click)="setClick(newInput.value)"
+    [disabled]="buttonStatus">Set</button>
   <p></p>
 
   Deduct: <br>
   <input #deduct 
   (keyup.enter)="setDeduct(deduct.value)"
   (blur)="setDeduct(deduct.value); deduct.value='' ">
-  <button type='button' (ng-click)="setDeduct(deduct.value)">Set</button>
+  <button type='button' (ng-click)="setDeduct(deduct.value)">Spend!</button>
   <p></p>
   
   <p>{{clickSetAmt}} {{message}}</p>
   <p>{{deducted}} {{message2}}</p>
-  <p></p>
+  <p [hidden]="spentStatus">Total Spent: {{amtSpent}}</p>
 </form>
