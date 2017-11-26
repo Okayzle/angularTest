@@ -35,7 +35,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 
 // the class itself: anything found here can be retrived from the template 
 export class AppComponent {
-  title = 'App';
+  title = 'Track Your Money...';
 
   // property binding is just passing data from component to set values in the view 
   // all about component -> view, we control the data from the components 
@@ -51,6 +51,9 @@ export class AppComponent {
   // services are made so we can share code and data across our components 
 
   // we can access services by declaring them 
+
+  // dev -> live 
+  
   constructor(private dataService:DataService){
 
   }
@@ -58,17 +61,10 @@ export class AppComponent {
   somprop: string = ''; 
 
   state: string = 'small' 
-
-  animateMe(){
-    this.state = (this.state === 'small' ? 'large' : 'small'); 
-  }
-
+  
   // anything in this method will run when started
   ngOnInit(){
-    // get varible info
-    console.log(this.dataService.cars); 
-    // call a method 
-    this.somprop = this.dataService.myData(); 
+
   }
 
 

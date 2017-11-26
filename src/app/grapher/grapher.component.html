@@ -1,0 +1,22 @@
+<p>Grapher</p>
+<p></p>
+<form>
+
+  Start: <br>
+  <input #newInput 
+    (keyup.enter)="setClick(newInput.value)"
+    (blur)="setClick(newInput.value); newInput.value='' ">
+  <button type='button' (ng-click)="setClick(newInput.value)">Set</button>
+  <p></p>
+
+  Deduct: <br>
+  <input #deduct 
+  (keyup.enter)="setDeduct(deduct.value)"
+  (blur)="setDeduct(deduct.value); deduct.value='' ">
+  <button type='button' (ng-click)="setDeduct(deduct.value)">Set</button>
+  <p></p>
+  
+  <p>{{clickSetAmt}} {{message}}</p>
+  <p>{{deducted}} {{message2}}</p>
+  <p></p>
+</form>
